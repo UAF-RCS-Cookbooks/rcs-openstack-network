@@ -30,7 +30,7 @@ end
 platform_options = node['openstack']['network']['platform']
 
 if node['openstack']['network']['syslog']['use']
-  include_recipe 'openstack-common::logging'
+  include_recipe 'rcs-openstack-common::logging'
 end
 
 package platform_options['neutron_packages'] do
@@ -47,7 +47,7 @@ end
 
 template '/etc/neutron/rootwrap.conf' do
   source 'openstack-service.conf.erb'
-  cookbook 'openstack-common'
+  cookbook 'rcs-openstack-common'
   owner node['openstack']['network']['platform']['user']
   group node['openstack']['network']['platform']['group']
   mode '644'
@@ -98,7 +98,7 @@ neutron_conf_options = merge_config_options 'network'
 
 template '/etc/neutron/neutron.conf' do
   source 'openstack-service.conf.erb'
-  cookbook 'openstack-common'
+  cookbook 'rcs-openstack-common'
   owner node['openstack']['network']['platform']['user']
   group node['openstack']['network']['platform']['group']
   mode '640'

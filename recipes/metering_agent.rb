@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe 'openstack-network'
+include_recipe 'rcs-openstack-network'
 
 platform_options = node['openstack']['network']['platform']
 

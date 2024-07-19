@@ -24,7 +24,7 @@ class ::Chef::Recipe
   include ::Openstack
 end
 
-include_recipe 'openstack-network::ml2_core_plugin'
+include_recipe 'rcs-openstack-network::ml2_core_plugin'
 
 node.default['openstack']['network']['plugins']['ml2']['conf']['ml2']['mechanism_drivers'] = 'openvswitch'
 

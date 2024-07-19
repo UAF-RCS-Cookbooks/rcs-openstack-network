@@ -17,8 +17,8 @@
 # limitations under the License.
 #
 
-include_recipe 'openstack-network'
-include_recipe 'openstack-network::ml2_openvswitch'
+include_recipe 'rcs-openstack-network'
+include_recipe 'rcs-openstack-network::ml2_openvswitch'
 
 plugin_file_path = File.join(
   node['openstack']['network']['plugins']['openvswitch']['path'],

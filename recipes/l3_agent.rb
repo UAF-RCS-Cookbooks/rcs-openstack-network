@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-include_recipe 'openstack-network'
+include_recipe 'rcs-openstack-network'
 
 # Make Openstack object available in Chef::Recipe
 class ::Chef::Recipe

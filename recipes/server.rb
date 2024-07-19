@@ -19,7 +19,7 @@
 # limitations under the License.
 #
 
-include_recipe 'openstack-network'
+include_recipe 'rcs-openstack-network'
 
 # Make Openstack object available in Chef::Recipe
 class ::Chef::Recipe
@@ -60,7 +60,7 @@ if node['openstack']['network']['policyfile_url']
 end
 
 # Migrate network database to latest version
-include_recipe 'openstack-network::db_migration'
+include_recipe 'rcs-openstack-network::db_migration'
 plugin_templates = []
 node['openstack']['network']['plugins'].each_value.to_s do |plugin|
   plugin_templates << "template[#{File.join(plugin['path'], plugin['filename'])}]"
@@ -77,4 +77,4 @@ service 'neutron-server' do
   ].flatten
 end
 
-include_recipe 'openstack-network::identity_registration'
+include_recipe 'rcs-openstack-network::identity_registration'

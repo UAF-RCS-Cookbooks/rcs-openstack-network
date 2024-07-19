@@ -24,7 +24,7 @@
 # set the proper attributes to create an empty linuxbridge_conf.ini in the
 # proper directory when including the plugin_conf recipe in this cookbook. The
 # config can be filled via attributes (e.g. like done for the ml2_openvswitch).
-include_recipe 'openstack-network'
+include_recipe 'rcs-openstack-network'
 node.default['openstack']['network']['plugins']['ml2']['conf']['ml2']['type_drivers'] = 'local,flat,vlan,gre,vxlan'
 node.default['openstack']['network']['plugins']['ml2']['conf']['ml2']['mechanism_drivers'] = 'linuxbridge,l2population'
 node.default['openstack']['network']['plugins']['ml2']['conf']['ml2_type_vxlan']['vni_ranges'] = 'VNI_START:VNI_END'
@@ -42,7 +42,7 @@ node.default['openstack']['network']['plugins']['linuxbridge'].tap do |lb|
   lb['conf']['securitygroup']['firewall_driver'] = 'neutron.agent.linux.iptables_firewall.IptablesFirewallDriver'
 end
 
-include_recipe 'openstack-network::plugin_config'
+include_recipe 'rcs-openstack-network::plugin_config'
 
 service 'neutron-plugin-linuxbridge-agent' do
   service_name platform_options['neutron_linuxbridge_agent_service']

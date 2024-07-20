@@ -28,7 +28,7 @@ node['openstack']['network']['plugins'].each_value do |plugin|
 
   template File.join(plugin['path'], plugin['filename']) do
     source 'openstack-service.conf.erb'
-    cookbook 'openstack-common'
+    cookbook 'rcs-openstack-common'
     owner node['openstack']['network']['platform']['user']
     group node['openstack']['network']['platform']['group']
     mode '644'

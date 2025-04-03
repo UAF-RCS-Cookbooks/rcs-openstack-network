@@ -27,7 +27,7 @@ describe 'openstack-network' do
       it do
         expect(chef_run).to create_template('/etc/neutron/rootwrap.conf').with(
           source: 'openstack-service.conf.erb',
-          cookbook: 'openstack-common',
+          cookbook: 'rcs-openstack-common',
           owner: 'neutron',
           group: 'neutron',
           mode: '644'
@@ -52,7 +52,7 @@ describe 'openstack-network' do
       it do
         expect(chef_run).to create_template('/etc/neutron/neutron.conf').with(
           source: 'openstack-service.conf.erb',
-          cookbook: 'openstack-common',
+          cookbook: 'rcs-openstack-common',
           owner: 'neutron',
           group: 'neutron',
           mode: '640',

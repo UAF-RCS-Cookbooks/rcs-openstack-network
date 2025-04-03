@@ -39,7 +39,7 @@ end
 service_config = merge_config_options 'network_dhcp'
 template node['openstack']['network_dhcp']['config_file'] do
   source 'openstack-service.conf.erb'
-  cookbook 'openstack-common'
+  cookbook 'rcs-openstack-common'
   owner node['openstack']['network']['platform']['user']
   group node['openstack']['network']['platform']['group']
   mode '644'

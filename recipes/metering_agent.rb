@@ -29,7 +29,7 @@ end
 service_config = merge_config_options 'network_metering'
 template node['openstack']['network_metering']['config_file'] do
   source 'openstack-service.conf.erb'
-  cookbook 'openstack-common'
+  cookbook 'rcs-openstack-common'
   owner node['openstack']['network']['platform']['user']
   group node['openstack']['network']['platform']['group']
   mode '640'

@@ -46,7 +46,7 @@ describe 'openstack-network::l3_agent' do
         it 'creates l3_agent.ini' do
           expect(chef_run).to create_template(file.name).with(
             source: 'openstack-service.conf.erb',
-            cookbook: 'openstack-common',
+            cookbook: 'rcs-openstack-common',
             user: 'neutron',
             group: 'neutron',
             mode: '640'
